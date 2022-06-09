@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Intro section with dropdown nav</title>
+</head>
+<body>
+  <div class="blackscreen"></div>
+  <header class="header">
+      <div class="header__logo">
+          <img src="images/logo.svg" alt="snap name logo">
+      </div>
+      <div class="header__menu-icon open">
+          <img src="images/icon-menu.svg" alt="icon menu">
+      </div>
+
+
+      <div class="header__slideMenu">
+          <div class="header__slideMenu-close-btn open">
+              <img src="images/icon-close-menu.svg" alt="close button">
+          </div>
+        <ul class="nav">
+            <li class="nav__list-item drop toggle1">Features
+              <span class="rot1"><img src="images/icon-arrow-up.svg" alt=""></span>
+            </li>
+              <ul class="nav__list-sub1">
+                <li class="nav__list-sub1-item">Todo List</li>
+                <li class="nav__list-sub1-item">Calendar</li>
+                <li class="nav__list-sub1-item">Reminder</li>
+                <li class="nav__list-sub1-item">Planning</li>
+              </ul>
+            <li class="nav__list-item drop toggle2">Company
+              <span class="rot2"><img src="images/icon-arrow-up.svg" alt=""></span>
+            </li>
+              <ul class="nav__list-sub2">
+                <li>History</li>
+                <li>Our Team</li>
+                <li>Blog</li>
+              </ul>
+            <li class="nav__list-item">Careers</li>
+            <li class="nav__list-item">About</li>
+        </ul>
+        <div class="btn-group">
+            <button>Login</button>
+            <button>Register</button>
+        </div>
+      </div>
+
+
+  </header>
+  <main class="hero">
+    <div class="hero__image">
+        <img src="images/image-hero-mobile.png" alt="image hero background">
+    </div>
+    <div class="hero__content">
+        <h1 class="hero__content-title">Make remote work</h1>
+        <p class="hero__content-body">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+        <button class="hero__content-btn">Learn more</button>
+    </div>
+  </main>
+  <footer class="client-logo">
+      <div class="client-logo__img">
+          <img src="images/client-databiz.svg" alt="">
+      </div>
+      <div class="client-logo__img">
+        <img src="images/client-audiophile.svg" alt="">
+      </div>
+      <div class="client-logo__img">
+        <img src="images/client-meet.svg" alt="">
+      </div>
+      <div class="client-logo__img">
+        <img src="images/client-maker.svg" alt="">
+      </div>
+  </footer>
+  
+  <script>
+    $(document).ready(function () {
+      $(".toggle1").click(function () {
+        $(".nav__list-sub1").slideToggle(800);
+        $(".toggle1 span").toggleClass("rot1");
+      })
+
+      $(".toggle2").click(function () {
+        $(".nav__list-sub2").slideToggle(800);
+        $(".toggle2 span").toggleClass("rot2");
+      })
+
+      $(".open").click(function() {
+        
+        $(".header__slideMenu").toggleClass("slide");
+        $(".blackscreen").toggleClass("black");
+      })
+    });
+
+
+  </script>
+</body>
+</html>
