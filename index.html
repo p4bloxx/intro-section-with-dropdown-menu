@@ -9,98 +9,109 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <title>Intro section with dropdown nav</title>
+    <title>prova3 dropdown</title>
 </head>
 <body>
-  <div class="blackscreen"></div>
-  <header class="header">
-      <div class="header__logo">
-          <img src="images/logo.svg" alt="snap name logo">
-      </div>
-      <div class="header__menu-icon open">
-          <img src="images/icon-menu.svg" alt="icon menu">
-      </div>
+    <div class="blackscreen"></div>
 
-
-      
-
-
-  </header>
-  <div class="header__slideMenu">
-    <div class="header__slideMenu-close-btn open">
-        <img src="images/icon-close-menu.svg" alt="close button">
-    </div>
-  <ul class="nav">
-      <li class="nav__list-item drop toggle1">Features
-        <span class="rot1"><img src="images/icon-arrow-up.svg" alt=""></span>
-      </li>
-        <ul class="nav__list-sub1">
-          <li class="nav__list-sub1-item">Todo List</li>
-          <li class="nav__list-sub1-item">Calendar</li>
-          <li class="nav__list-sub1-item">Reminder</li>
-          <li class="nav__list-sub1-item">Planning</li>
-        </ul>
-      <li class="nav__list-item drop toggle2">Company
-        <span class="rot2"><img src="images/icon-arrow-up.svg" alt=""></span>
-      </li>
-        <ul class="nav__list-sub2">
-          <li>History</li>
-          <li>Our Team</li>
-          <li>Blog</li>
-        </ul>
-      <li class="nav__list-item">Careers</li>
-      <li class="nav__list-item">About</li>
-  </ul>
-  <div class="btn-group">
-      <button>Login</button>
-      <button>Register</button>
-  </div>
-</div>
-  <main class="hero">
-    <div class="hero__image">
-        <img src="images/image-hero-mobile.png" alt="image hero background">
-    </div>
-    <div class="hero__content">
-        <h1 class="hero__content-title">Make remote work</h1>
-        <p class="hero__content-body">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
-        <button class="hero__content-btn">Learn more</button>
-    </div>
-  </main>
-  <footer class="client-logo">
-      <div class="client-logo__img">
-          <img src="images/client-databiz.svg" alt="">
-      </div>
-      <div class="client-logo__img">
-        <img src="images/client-audiophile.svg" alt="">
-      </div>
-      <div class="client-logo__img">
-        <img src="images/client-meet.svg" alt="">
-      </div>
-      <div class="client-logo__img">
-        <img src="images/client-maker.svg" alt="">
-      </div>
-  </footer>
+    <header class="header">
+        <div class="header__logo">
+            <img src="images/logo.svg" alt="snap name logo">
+        </div>
   
-  <script>
-    $(document).ready(function () {
-      $(".toggle1").click(function () {
-        $(".nav__list-sub1").slideToggle(800);
-        $(".toggle1 span").toggleClass("rot1");
-      })
-
-      $(".toggle2").click(function () {
-        $(".nav__list-sub2").slideToggle(800);
-        $(".toggle2 span").toggleClass("rot2");
-      })
-
-      $(".open").click(function() {
         
-        $(".header__slideMenu").toggleClass("slide");
-        $(".blackscreen").toggleClass("black");
-      })
-    });
+        
+        <nav class="menu">
+
+            <div class="navMenu__close toggle">
+                <img src="images/icon-close-menu.svg" alt="close button">
+           </div>
+
+          <ul class="navMenu">
+            <li class="navMenu__item">Features
+                <span class="arrow"><img src="images/icon-arrow-down.svg" alt=""></span>
+                <ul class="sub-menu">
+                    <li class="sub-menu-item"><img src="images/icon-todo.svg" alt="">Todo List</li>
+                    <li class="sub-menu-item"><img src="images/icon-calendar.svg" alt="">Calendar</li>
+                    <li class="sub-menu-item"><img src="images/icon-reminders.svg" alt="">Reminders</li>
+                    <li class="sub-menu-item"><img src="images/icon-planning.svg" alt="">Planning</li>
+                </ul>
+            </li>
+      
+                <li class="navMenu__item">Company
+                    <span class="arrow"><img src="images/icon-arrow-down.svg" alt=""></span>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">History</li>
+                        <li class="sub-menu-item">Our Team</li>
+                        <li class="sub-menu-item">Blog</li>
+                    </ul>
+                </li>
+  
+                <li class="navMenu__item">Careers</li>
+                <li class="navMenu__item"> About</li>
+            </ul>
+            <div class="cta-group">
+                <button>Login</button>
+                <button>Register</button>
+            </div>
+
+            
+        </nav>
+        
+       
+      
+        
+  
+        <div class="navMenu__open toggle">
+          <img src="images/icon-menu.svg" alt="icon open menu">
+        </div>
+    </header>
+    
+    <main class="hero">
+        <div class="hero__image">
+            <img src="images/image-hero-mobile.png" class="bg-mob" alt="image hero background">
+            <img src="images/image-hero-desktop.png" class="bg-desk" alt="">
+        </div>
+        <div class="hero__content">
+            <h1 class="hero__content-title"><span>Make</span> remote work</h1>
+            <p class="hero__content-body">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+            <button class="hero__content-btn">Learn more</button>
+            <div class="client-logo">
+              <div class="client-logo__img">
+                  <img src="images/client-databiz.svg" alt="">
+              </div>
+              <div class="client-logo__img">
+                <img src="images/client-audiophile.svg" alt="">
+              </div>
+              <div class="client-logo__img">
+                <img src="images/client-meet.svg" alt="">
+              </div>
+              <div class="client-logo__img">
+                <img src="images/client-maker.svg" alt="">
+              </div>
+            </div>
+        </div>
+      </main>
+
+    <script>
 
 
-  </script>
+        $(document).ready(function(){
+
+            /*script for open dropdown menu and rotate arrow icons*/
+            $(".navMenu__item").click(function(){
+                $(this).find(".sub-menu").slideToggle(500);
+                $(this).find(".arrow").toggleClass("arrow--open");
+            })
+
+            /*script for open slide-menu and add matte blackscreen (mobile) */
+            $(".toggle").click(function(){
+                $(".menu").toggleClass("menu--open");
+                $(".blackscreen").toggleClass("blackscreen--open");
+            })
+        });
+
+       
+    </script>
 </body>
 </html>

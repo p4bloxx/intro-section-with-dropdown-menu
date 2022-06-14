@@ -15,8 +15,8 @@ picture {
   display: block;
 }
 
-ul{
-    list-style-type: none;
+ul li{
+    list-style: none;
 }
 
 button,
@@ -24,19 +24,20 @@ a{
     cursor: pointer;
 }
 
-/*all styles rules*/
 
+/*all styles rules*/
 :root{
     --ff: 'Epilogue', sans-serif;
 
     --fw-mdm: 500;
     --fw-bld: 700;
 
-    --fs-default-desk: 1.125rem;
-    --fs-default: 1rem;
     --fs-small: 0.875rem;
     --fs-smallest: 0.8125rem;
-    --fs-big: 2.125rem;
+    --fs-body: 1rem;
+    --fs-body-desk: 1.125rem;
+    --fs-title: 2.125rem;
+    --fs-title-desk: 4.5rem;
 
     --neutral: hsl(0, 0%, 98%);
     --primary: hsl(0, 0%, 41%);
@@ -48,151 +49,93 @@ body{
     background-color: var(--neutral);
     line-height: 1.5;
     font-family: var(--ff);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    position: relative;
+    color: var(--primary);
+    font-weight: var(--fw-mdm);
 }
+
+
 
 .header{
     display: flex;
     justify-content: space-between;
     margin: 1.5rem 1rem;
-}
-
-.header__slideMenu{
-    position: absolute;
-    background-color: var(--neutral);
-    height: 100%;
-    width: 64%;
-    inset: 0;
-    right: -64%;
-    margin-left: auto;
-    padding: 1.5rem 1rem;
-    transition: all 0.8s;
     z-index: 1;
-    
+    position: relative;
 }
 
-.slide{
-    right: 0%;
-}
-
-.header__slideMenu-close-btn{
-    display: flex;
-    justify-content: flex-end;
-    margin-block-end: 1.5rem;
-}
-
-
-.nav{
-    margin-bottom: 1.5rem;
-    font-size: var(--fs-small);
-}
-
-.nav > li{
+.header__logo{
     width: max-content;
 }
 
-.nav > li:not(:last-child){
-    padding-bottom: 1rem;
-}
-
-.nav > *{
-    color: var(--primary);
-}
-.drop{
-    position: relative;
-}
-
-.toggle1 span,
-.toggle2 span{
-    display: inline-block;
-    margin-left: 0.5rem;
-    transition: all 0.6s;
-}
-
-.rot1,
-.rot2{
-    transform: rotatex(180deg);
-}
-
-.nav__list-sub1{
-    font-size: var(--fs-smallest);
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-    z-index: 1;
-    display: none;
-}
-
-.nav__list-sub1 > li:not(:last-child){
-    padding-bottom: 1rem;
+.menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 65vw;
+    background-color: var(--neutral);
+    padding: 1.5rem 1rem;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
 }
 
 
-.nav__list-sub1 > li:nth-child(1)::before{
-    content: url("images/icon-todo.svg");
-    margin-right: 0.8rem;
-    position: relative;
-    top: 0.2rem;
+.menu--open{
+    transform: translateX(0);
 }
 
-.nav__list-sub1 > li:nth-child(2)::before{
-    content: url("images/icon-calendar.svg");
-    margin-right: 0.8rem;
-    position: relative;
-    top: 0.2rem;
+.navMenu__close{
+    display: flex;
+    justify-content: flex-end;
+    margin-block-end: 1.5rem;
+    width: max-content;
+    margin-left: auto;
 }
 
-.nav__list-sub1 > li:nth-child(3)::before{
-    content: url("images/icon-reminders.svg");
-    display: inline-block;
-    margin-right: 1rem;
-    position: relative;
-    top: 0.2rem;
-}
-
-.nav__list-sub1 > li:nth-child(4)::before{
-    content: url("images/icon-planning.svg");
-    display: inline-block;
-    margin-right: 0.8rem;
-    position: relative;
-    top: 0.2rem;
-}
-
-
-.nav__list-sub2{
-    font-size: var(--fs-smallest);
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-    display: none;
-}
-
-.nav__list-sub2 > li:not(:last-child){
-    padding-bottom: 1rem;
-}
-
-
-
-
-
-
-.btn-group{
+.navMenu{
     display: flex;
     flex-direction: column;
+    color: var(--primary);
+    font-size: var(--fs-small);
+    margin-bottom: 1.5rem;
+    
 }
 
-.btn-group > *{
+.navMenu__item{
+    width: max-content;
+}
+
+
+/*arrow icon*/
+.arrow{
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: all 0.3s linear;
+}
+
+.arrow--open{
+    transform: rotateX(180deg);
+}
+
+.navMenu__item:not(:last-child){
+    padding-bottom: 1rem;
+}
+
+.cta-group{
+    display: flex;
+    flex-direction: column;
     font-size: var(--fs-smallest);
 }
 
-.btn-group > :first-child{
+.cta-group > :first-child{
     background: none;
     border: none;
     color: var(--primary);
     margin-block-end: 1rem;
 }
 
-.btn-group > :last-child{
+.cta-group > :last-child{
     color: var(--primary);
     padding-block: 0.6rem 0.7rem;
     background: none;
@@ -200,23 +143,47 @@ body{
     border-radius: 0.8rem;
 }
 
+/*both submenu*/
+.sub-menu{
+    padding-left: 1.5rem;
+    padding-block-start: 1rem;
+    font-size: var(--fs-smallest);
+    display: none;
+}
+
+.sub-menu-item img{
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.sub-menu-item:nth-child(3) img{
+    margin-right: 0.7rem;
+}
+
+.sub-menu-item:not(:last-child){
+    padding-bottom: 0.5rem;
+}
+
+/*img background desktop - not visible*/
+.bg-desk{
+    display: none;
+}
+
 .hero__content{
+    padding-inline: 1rem;
+    padding-block-start: 2.5rem;
     text-align: center;
-    margin-block: 3rem;
-    margin-inline: 1rem;
 }
 
-.hero__content h1{
-    font-size: var(--fs-big);
+.hero__content-title{
+    font-size: var(--fs-title);
     color: var(--accent);
-    line-height: 1.2;
-    margin-block-end: 1rem;
+    font-weight: var(--fw-bld);
 }
 
-.hero__content p{
-    font-size: var(--fs-default);
-    color: var(--primary);
-    margin-block-end: 1.5rem;
+.hero__content-body{
+    font-size: var(--fs-body);
+    padding-block: 0.5rem 1.5rem;
 }
 
 .hero__content button{
@@ -226,42 +193,256 @@ body{
     background-color: var(--accent);
     color: var(--neutral);
     border-radius: 0.8rem;
-    font-size: var(--fs-default);
+    font-size: var(--fs-body);
     font-weight: var(--fw-mdm);
     transition: all 0.3s linear;
 }
 
-/*.hero__content button:hover{
-    background-color: var(--neutral);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-}*/
+
 
 .client-logo{
     display: flex;
     justify-content: space-between;
+    margin-block-start: 3rem;
     align-items: center;
-    margin-inline: 1rem;
 }
 
 .client-logo__img{
-    width: 4rem;
+    width: 4.5rem;
 }
 
 .client-logo__img:nth-child(2){
     width: 3rem;
 }
 
+
+/*matte black screen with slideMenu is open*/
 .blackscreen{
     position: absolute;
     top: 0;
-    left:0 ;
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100vh;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.0);
     width: 100vw;
-    display: none;
+    height: 100vh;
+    transition: all 0.5s;
 }
 
-.black{
-    display: block;
+.blackscreen--open{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*desktop size rules*/
+@media screen and (min-width:62em) {
+    *{
+        overflow: visible;
+    }
+
+    .toggle,
+    .blackscreen{
+        display: none;
+    }
+
+    li,
+    button,
+    .header__logo{
+        cursor: pointer;
+    }
+
+    body{
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .header{
+       justify-content:flex-start;
+       align-items: center;
+       position: relative;
+       z-index: 0;
+       gap: 3.5rem;
+       margin: 1rem 2rem;
+       z-index: 2;
+    }
+
+
+    .menu{
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+        padding: 0;
+        transform: translateX(0);
+        
+    }
+
+    .navMenu{
+        margin-bottom: 0;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: center;
+        position: relative;
+       
+    }
+
+    .navMenu__item{
+        position: relative;
+    }
+
+    .navMenu__item:hover{
+        color: var(--accent);
+    }
+
+    .arrow img:hover{
+        stroke: aqua;
+    }
+
+    .sub-menu{
+        position: absolute;
+        background-color: var(--neutral);
+        padding: 1.2rem 1.5rem;
+        border-radius: 0.6rem;
+        width: max-content;
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
+        right: 0;
+        top: 2rem;
+        color: initial;
+        color: var(--primary);
+       
+    }
+
+
+   .sub-menu li:hover{
+    color: var(--accent);
+   }
+
+  .navMenu__item:nth-child(2) > ul{
+    left: 0;
+  }
+
+    .arrow{
+       
+        margin-left: 0.2rem;
+       
+    }
+
+    .navMenu__item:not(:last-child){
+        padding-bottom: 0;
+    }
+
+    .cta-group{
+        flex-direction: row;
+        align-self: flex-end;
+    }
+
+    .cta-group > :first-child{
+        margin-block-end: 0;
+        margin-inline-end: 1rem;
+    }
+
+    .cta-group > :last-child{
+        padding-block: 0;
+        padding: 0.5rem 1rem;
+    }
+
+    .cta-group button:hover{
+        color: var(--accent);
+    }
+
+    .cta-group > :last-child:hover{
+        border-color: var(--accent);
+    }
+
+
+    .bg-mob{
+        display: none;
+    }
+
+    .hero{
+        display: grid;
+        grid-auto-columns: 1fr;
+        width: max(80%, 80rem);
+        grid-template-areas: 
+        "text image";
+        margin-inline: auto;
+        margin-inline-start: 9rem;
+        margin-block: 3rem;
+        height: 73%;
+        z-index: 0;
+    }
+
+    .hero__content{
+        grid-area: text;
+        padding-inline: 0;
+        text-align: left;
+        position: relative;
+        padding-block-start: 7rem;
+    }
+
+    .hero__content-title{
+        font-size: var(--fs-title-desk);
+        line-height: 1;
+    }
+
+    .hero__content-body{
+        font-size: var(--fs-body-desk);
+        padding-right: 12rem;
+        padding-block: 2rem 3rem;
+    }
+
+    .hero__content button{
+        padding-inline: 1.5rem;
+        padding-block: 0.8rem 1rem;
+    }
+
+
+    .hero__content button:hover{
+        background-color: var(--neutral);
+        border: 1px solid var(--accent);
+        color: var(--accent);
+    }
+
+    .hero__content-title span{
+        display: block;
+    }
+
+    .hero__image{
+        position: relative;
+        width: auto;
+    }
+
+    .bg-desk{
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    
+    .client-logo{
+        position:absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: flex-start;
+        gap: 3rem;
+        margin-block-start: 3rem;
+    }
+
+    .client-logo__img{
+        width: 5.5rem;
+    }
+
+    .client-logo__img:nth-child(2){
+        width: 3.5rem;
+    }
+}
+
+/*extra-large screen size rule*/
+@media screen and (min-width: 90em) {
+    .hero{
+        height: 80%;
+    }
 }
