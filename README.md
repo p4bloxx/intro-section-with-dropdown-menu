@@ -32,8 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/responsive-intro-section-with-dropdown-menu-wIe6isxHjW](https://www.frontendmentor.io/solutions/responsive-intro-section-with-dropdown-menu-wIe6isxHjW)
-- Live Site URL: [https://p4bloxx.github.io/intro-section-with-dropdown-menu/]()
-
+- Live Site URL: https://p4bloxx.github.io/intro-section-with-dropdown-menu/
 ## My process
 
 ### Built with
